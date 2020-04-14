@@ -145,7 +145,7 @@ collections:
                 name: url
                 label: URL
                 required: true
-  - name: doc_sections
+ - name: doc_sections
     label: Documentation Sections
     files:
       - name: doc_sections
@@ -268,6 +268,183 @@ collections:
     filter:
       field: template
       value: docs
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+ - name: testdoc_sections
+    label: Documentation Sections
+    files:
+      - name: testdoc_sections
+        label: Documentation Sections
+        file: src/data/testdoc_sections.yml
+        fields:
+          - widget: string
+            name: root_folder
+            label: Root Folder
+            required: true
+            default: /testdocs/
+            hint: >-
+              The path under which the documentation pages will be generated.
+              For example, set to "/" to put all documentation pages at root, or
+              set to "/testdocs/" to put all documentation pages under "/testdocs/".
+          - widget: list
+            name: sections
+            label: Sections
+            required: false
+            hint: >-
+              The main sections of the documentation. Every item must be the URL
+              slug representing the section.
+            field:
+              label: String
+              name: string
+              widget: string
+  - name: testdocs
+    label: testDocumentation Pagess
+    folder: src/pages/
+    create: true
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - widget: string
+        name: title
+        label: Title
+        required: true
+        hint: >-
+          The title of the page, used both as a page title and as a navigation
+          menu title.
+      - widget: number
+        name: weight
+        label: Weight
+        required: false
+        hint: >-
+          The navigation order of the documentation page. This value is ignored
+          for parent section pages.
+        valueType: int
+      - widget: string
+        name: excerpt
+        label: Excerpt
+        required: false
+        hint: >-
+          Short description of the documentation section. This value is used in
+          overview page and is ignored for child section pages.
+      - widget: object
+        name: menus
+        label: test Documentation Pages Menus
+        required: false
+        hint: Which menus should this page show up in
+        fields:
+          - widget: object
+            name: main
+            label: Main menu item
+            required: false
+            hint: Main menu item for this page
+            fields:
+              - widget: string
+                name: title
+                label: Title
+                required: false
+                hint: The title of the menu item
+              - widget: number
+                name: weight
+                label: Weight
+                required: false
+                hint: Position for sorting
+                valueType: int
+              - widget: string
+                name: identifier
+                label: Identifier
+                required: false
+                hint: >-
+                  The identifier of a menu item could be used as a parent menu
+                  of another menu item
+          - widget: object
+            name: layouts
+            label: Layouts menu item
+            required: false
+            hint: Layouts menu item for this page
+            fields:
+              - widget: string
+                name: title
+                label: Title
+                required: false
+                hint: The title of the menu item
+              - widget: number
+                name: weight
+                label: Weight
+                required: false
+                hint: Position for sorting
+                valueType: int
+              - widget: string
+                name: identifier
+                label: Identifier
+                required: false
+                hint: >-
+                  The identifier of a menu item could be used as a parent menu
+                  of another menu item
+      - widget: hidden
+        name: template
+        label: Template
+        required: true
+        default: testdocs
+      - widget: markdown
+        name: body
+        label: Content
+        required: false
+        hint: Page content
+    filter:
+      field: template
+      value: testdocs      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
   - name: home
     label: Home
     files:
