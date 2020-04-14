@@ -222,6 +222,87 @@ models:
         name: menus
         label: Documentation Pages Menus
         description: Which menus should this page show up in
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    testdoc_sections:
+    type: data
+    file: testdoc_sections.yml
+    label: test Documentation Sections
+    fields:
+      - type: string
+        name: root_folder
+        label: Root Folder
+        description: >-
+          The path under which the documentation pages will be generated. For
+          example, set to "/" to put all documentation pages at root, or set to
+          "/testdocs/" to put all documentation pages under "/testdocs/".
+        default: /testdocs/
+        required: true
+      - type: list
+        name: sections
+        label: Sections
+        description: >-
+          The main sections of the documentation. Every item must be the URL
+          slug representing the section.
+        items:
+          type: string
+  testdocs:
+    type: page
+    label: test Documentation Pages
+    template: testdocs
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: >-
+          The title of the page, used both as a page title and as a navigation
+          menu title.
+        required: true
+      - type: number
+        name: weight
+        label: Weight
+        description: >-
+          The navigation order of the documentation page. This value is ignored
+          for parent section pages.
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: >-
+          Short description of the documentation section. This value is used in
+          overview page and is ignored for child section pages.
+      - type: page_menus
+        name: menus
+        label: Documentation Pages Menus
+        description: Which menus should this page show up in
+ 
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
   home:
     type: page
     label: Home
